@@ -8,6 +8,119 @@
   box-sizing: border-box;
 }
 
+:root {
+  --primary-color: #222327;
+  --secodary-color: #2196f3;
+  --nav-color: #fff;
+}
+
 body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--primary-color);
   font-family: 'Poppins', sans-serif;
+}
+
+.navigation {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  height: 60px;
+  background-color: var(--nav-color);
+  border-radius: 10px;
+}
+
+.navigation ul {
+  display: flex;
+  width: 350px;
+}
+
+.navigation ul li {
+  position: relative;
+  width: 70px;
+  height: 60px;
+  list-style-type: none;
+  z-index: 2;
+}
+
+.navigation ul li a {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+}
+
+.navigation ul li a .icon {
+  position: relative;
+  display: block;
+  line-height: 65px;
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  transition: all 0.5 ease-in-out;
+}
+
+.navigation ul li.active a .icon {
+  color: var(--secodary-color);
+  transform: translateY(-32px);
+}
+
+.navigation ul li a .text {
+  position: absolute;
+  padding: 2px 7px;
+  background-color: var(--secodary-color);
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: #fff;
+  letter-spacing: 0.05rem;
+  transform: translateY(15px);
+  transition: all 0.5s ease-in-out;
+  opacity: 0;
+}
+
+.navigation ul li.active a .text {
+  transform: translateY(-4px);
+  opacity: 1;
+}
+
+.indicator {
+  position: absolute;
+  top: -35px;
+  width: 70px;
+  height: 70px;
+  background-color: var(--nav-color);
+  border-radius: 50%;
+  transition: all 0.5s ease-in-out;
+  z-index: 1;
+}
+
+.indicator::before {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: -28px;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: 15px 18px var(--nav-color);
+}
+
+.indicator::after {
+  content: '';
+  position: absolute;
+  top: 5px;
+  right: -28px;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: -15px 18px var(--nav-color);
 }
